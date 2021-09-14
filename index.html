@@ -1,15 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript exercises</title>
-</head>
-<body>
-    <p>Hi! I'm trying to learn javascript.</p>
+    <!--<link href="style.css" rel="stylesheet"><-->
     
-<script src="script.js"></script>
+</head>
+
+<body>
+
+ <!--login page here-->
+
+ <div>
+    <form>
+    <label for="namn">Namn:</label><br>
+    <input type="text" id="inputname" name="name"><br>
+    <label for="lösenord">Lösenord:</label><br>
+    <input type="text" id="inputpwd" name="password">
+    <input type="button" id="button" value="Logga in">
+  </form>
+</div>
+
+ <!--welcome page here-->
+<div>
+    <p id="successfulLoginPage">Success</p>
+</div>
+
+ <!--unsuccessful login page here-->
+<div>
+    <p id="unsuccessfulLoginPage">Failure</p> <!--det här skall byggas i javascript-->
+    <input type="button" value="Ok"> <!--gå tillbaka till login page. ta bort!-->
+</div>
+
+<!--SLASK TA BORT!-->
+
+<p id="slaskP">-Hej</p>
+
+<!--TILL HIT!-->
+
+    <!-- Links to javascript and css files /-->
+    <script src="script.js"></script>
+    <script src="home.html"></script>
+    <script src="slask.js"></script> <!--ta bort!-->
+
+
+
 
 </body>
 </html>
