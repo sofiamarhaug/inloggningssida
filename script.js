@@ -1,51 +1,59 @@
-//write to the log
-function log (logmessage) {
-    console.log(logmessage);
-}
 
 // declare some constant variables
-const namnConstant="test";
-const lösenordConstant="1234";
+const namn="test";
+const lösenord="1234";
 
-// declare some constants to fetch user input
+// declare some variables for user input
 const inputName = document.getElementById("inputName");
 const inputPwd = document.getElementById("inputPwd");
+
+//declare some variables for user action
 const loginButton = document.getElementById("loginButton");
+const logoutButton = document.getElementById("logoutButton");
 
+// create a function that checks the user input
+function checkInput(inputName, inputPwd) {
+if (inputName === namn && inputPwd === lösenord) {
 
-// create a function that checks the input
-function checkInput(namn, lösenord) {
-if (namn === namnConstant && lösenord === lösenordConstant) {
-
-    log("funkar");
     // toggle visibility
-    document.getElementById("successfulLoginBlock").style.display = "block"
+    changeVisibility("successfulLoginBlock", "show");
+    changeVisibility("loginBlock", "hide");
 
     // change content of block
     document.getElementById("successfulLoginBlockContent").textContent = "Välkommen!"
-} else {
-    log("funkar inte")
-    //toggle visibility
-    document.getElementById("unsuccessfulLoginBlock").style.display = "block"
 
-    //change content of block
+} else {
+    //hide visibility of other blocks
+    changeVisibility("loginBlock", "hide");
+
+    //change and show content of unsuccessful login block
+    changeVisibility("unsuccessfulLoginBlock", "show");
     document.getElementById("unsuccessfulLoginBlockContent").textContent = "Fel namn eller lösenord. Klicka på Ok och försök igen."
 }
 }
 
-function toggleLoginBlock(){
-    document.getElementById("loginBlock").style.display = "none"
-    log("login-rutan har blivit togglad")
+//create a function that toggles block visibility
+function changeVisibility(blockName, visibility) {
+    if (visibility === "show") {
+        visibility = "block";
+    } else {
+        visibility = "none";
+    }
+    //toggle the block visibility
+    document.getElementById(blockName).style.display = visibility;
 }
 
-function logOut(params) {
+function logOut() {
+    //go back to login block
+    changeVisibility("loginBlock", "show");
+    changeVisibility("successfulLoginBlock", "hide");
+    changeVisibility("unsuccessfulLoginBlock", "hide");
+
     //clear local storage
-    localStorage.clear()
-
-
+    localStorage.clear();
 }
 
-// create a function that executes when user clicks button
+// create a function that executes when user clicks log in button
 loginButton.onclick = function() {
     const namn = inputName.value;
     const lösenord = inputPwd.value;
@@ -56,9 +64,20 @@ loginButton.onclick = function() {
     //check if input exists and is correct
     if (namn && lösenord) {
         checkInput(namn, lösenord);
-        //show in log
-        console.log(localStorage);
     } else {
-        console.log("Input cannot be empty!")
+        //töm inputfält
+        //varningsmeddelande; får ej vara tomt!
     }
+}
+
+// add functionality to ok button
+const OKButton = document.getElementById("OKButton");
+OKButton.onclick = function () {
+    changeVisibility("loginBlock", "show");
+    changeVisibility("unsuccessfulLoginBlock", "hide");
+}
+
+// add functionality to log out button
+logoutButton.onclick = function () {
+    logOut();
 }
