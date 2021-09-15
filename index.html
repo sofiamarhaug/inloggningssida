@@ -11,39 +11,35 @@
 
 <body>
 
- <!--login page here-->
+ <!--login block here-->
 
- <div>
+ <div id="loginBlock" style="display: block;">
     <form>
     <label for="namn">Namn:</label><br>
-    <input type="text" id="inputname" name="name"><br>
+    <input type="text" id="inputName" name="Namn" placeholder="Skriv namn.."><br>
     <label for="lösenord">Lösenord:</label><br>
-    <input type="text" id="inputpwd" name="password">
-    <input type="button" id="button" value="Logga in">
+    <input type="text" id="inputPwd" name="Lösenord" placeholder="Skriv lösenord..">
+    <input type="button" id="loginButton" value="Logga in">
   </form>
 </div>
 
- <!--welcome page here-->
-<div>
-    <p id="successfulLoginPage">Success</p>
+ <!--welcome block here-->
+<div id="successfulLoginBlock" style="display: none;">
+    <p id="successfulLoginBlockContent">Success</p>
+    <input type="button" id="logoutButton" value="Logga ut">
 </div>
 
- <!--unsuccessful login page here-->
-<div>
-    <p id="unsuccessfulLoginPage">Failure</p> <!--det här skall byggas i javascript-->
-    <input type="button" value="Ok"> <!--gå tillbaka till login page. ta bort!-->
+ <!--unsuccessful login block here-->
+<div id="unsuccessfulLoginBlock" style="display: none;">
+    <p id="unsuccessfulLoginBlockContent">Failure</p> 
+    <input type="button" value="Ok"> <!--gå tillbaka till login page.-->
 </div>
 
-<!--SLASK TA BORT!-->
 
-<p id="slaskP">-Hej</p>
-
-<!--TILL HIT!-->
-
-    <!-- Links to javascript and css files /-->
-    <script src="script.js"></script>
-    <script src="home.html"></script>
-    <script src="slask.js"></script> <!--ta bort!-->
+<!-- Links to javascript and css files /-->
+<script src="script.js"></script>
+<script src="home.html"></script>
+<script src="slask.js"></script> <!--ta bort!-->
 
 
 
