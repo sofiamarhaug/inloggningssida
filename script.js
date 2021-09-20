@@ -1,5 +1,5 @@
 
-// declare some constant variables
+// declare some constants
 const namn="test";
 const lösenord="1234";
 
@@ -11,6 +11,7 @@ const inputPwd = document.getElementById("inputPwd");
 const loginButton = document.getElementById("loginButton");
 const logoutButton = document.getElementById("logoutButton");
 
+
 // create a function that checks the user input
 function checkInput(inputName, inputPwd) {
 if (inputName === namn && inputPwd === lösenord) {
@@ -19,16 +20,16 @@ if (inputName === namn && inputPwd === lösenord) {
     changeVisibility("successfulLoginBlock", "show");
     changeVisibility("loginBlock", "hide");
 
-    // change content of block
-    document.getElementById("successfulLoginBlockContent").textContent = "Välkommen!"
+    //append successful login block
+    successfulLoginBlock.insertAdjacentHTML('afterbegin', '<p>Välkommen!</p><br>');
 
 } else {
-    //hide visibility of other blocks
+    //hide visibility of main block
     changeVisibility("loginBlock", "hide");
 
-    //change and show content of unsuccessful login block
+    //append to and show content of unsuccessful login block
     changeVisibility("unsuccessfulLoginBlock", "show");
-    document.getElementById("unsuccessfulLoginBlockContent").textContent = "Fel namn eller lösenord. Klicka på Ok och försök igen."
+    unsuccessfulLoginBlock.insertAdjacentHTML('afterbegin', '<p>Fel namn eller lösenord. Klicka på Ok och försök igen.');
 }
 }
 
@@ -53,21 +54,23 @@ function logOut() {
     localStorage.clear();
 }
 
-// create a function that executes when user clicks log in button
+//add functionality to login button
 loginButton.onclick = function() {
     const namn = inputName.value;
     const lösenord = inputPwd.value;
 
     localStorage.setItem("name", namn);
-    localStorage.setItem("password", lösenord);
 
     //check if input exists and is correct
     if (namn && lösenord) {
         checkInput(namn, lösenord);
     } else {
-        //töm inputfält
-        //varningsmeddelande; får ej vara tomt!
+        alert("Namn och/eller lösenord får ej vara tomt!");
     }
+    
+    //clear input fields
+    inputName.value = "";
+    inputPwd.value = "";
 }
 
 // add functionality to ok button

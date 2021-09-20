@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inlämningsuppgift - skapa en inloggningssida</title>
     <!--<link href="style.css" rel="stylesheet"><-->
     
 </head>
 
-<body>
+<body id = "body">
 
  <!--login block here-->
  <div id="loginBlock" style="display: block;">
-    <form>
+    <form id="inputForm">
     <label for="namn">Namn:</label><br>
     <input type="text" id="inputName" name="Namn" placeholder="Skriv namn.." autocomplete="off"><br>
     <label for="lösenord">Lösenord:</label><br>
@@ -24,18 +21,16 @@
 
  <!--welcome block here-->
 <div id="successfulLoginBlock" style="display: none;">
-    <p id="successfulLoginBlockContent">Login success</p>
     <input type="button" id="logoutButton" value="Logga ut">
 </div>
 
  <!--unsuccessful login block here-->
 <div id="unsuccessfulLoginBlock" style="display: none;">
-    <p id="unsuccessfulLoginBlockContent">Login failure</p> 
     <input type="button" id="OKButton" value="Ok">
 </div>
 
 
-<!-- Links to javascript and css files /-->
+<!-- Links to javascript /-->
 <script src="script.js"></script>
 
 </body>
