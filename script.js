@@ -9,7 +9,6 @@ const inputPwd = document.getElementById("inputPwd");
 
 //declare some variables for user action
 const loginButton = document.getElementById("loginButton");
-//const logoutButton = document.getElementById("logoutButton");
 
 
 // create a function that checks the user input
@@ -20,7 +19,6 @@ function checkInput(inputName, inputPwd) {
         changeVisibility("loginBlock", "hide");
         //create and show the welcome block
         createSuccessfulLoginBlock();
-
 
     } else {
         //hide visibility of main block
