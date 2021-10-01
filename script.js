@@ -125,5 +125,5 @@ function logOut() {
     changeVisibility("successfulLoginBlock", "hide");
 
     //clear local storage
-    localStorage.clear();
+    localStorage.removeItem("name");
 }
